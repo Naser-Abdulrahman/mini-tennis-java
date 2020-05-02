@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="myDIV" class="header">
+      <h2>My To Do List</h2>
+      <input type="text" id="myInput" placeholder="Title..." />
+      <button type="submit" onclick="add()">Add</button>
+    </div>
+    <ul id="myUL">
+      <li class="checked" id="goat">Watch Wan Peaceee</li>
+      <li class="unchecked" id="Jim">Go to Jim's house</li>
+      <li class="checked" id="rent">Pay rent</li>
+      <li class="unchecked" id="EFT">Extract from Turk's</li>
+      <li class="unchecked" id="Wal">Go to Wally Wally</li>
+      <li class="checked" id="RIP">Toke</li>
+    </ul>
+  </body>
+  <form id="editForm" style="display: none;">
+    <input type="text" id="editInput" />
+    <button type="submit">edit</button>
+  </form>
+
+  <script>
+        const deleteButton =
+        for (let i = 0; i < myUL.length; i++){
+
+        }
+    let list = document.getElementById("myUL")
+    console.log(list);
+
+    function add(){
+       let itemName = document.getElementById('myInput').value;
+        validation(add);
+        function validation(event){
+        if (itemName.length < 3){
+            alert('Task name must be longer than 3 characters, baka');
+        } else {
+            var node = document.createElement("LI");
+            var textnode = document.createTextNode(itemName);
+            node.appendChild(textnode);
+            node.setAttribute('id', Math.random()*10);
+            document.getElementById("myUL").appendChild(node);
+            }
+        }
+    }
+    let check = document.querySelector('myUL');
+  </script>
+</html>
