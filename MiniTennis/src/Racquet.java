@@ -9,6 +9,7 @@ public class Racquet {
 
     public Racquet(Game game) {
         this.game = game;
+        System.out.println("Nogger");
     }
 
     public void move() {
