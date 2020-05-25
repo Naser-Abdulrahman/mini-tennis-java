@@ -2,51 +2,75 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div id="myDIV" class="header">
       <h2>My To Do List</h2>
       <input type="text" id="myInput" placeholder="Title..." />
-      <button type="submit" onclick="add()">Add</button>
+      <button type="button" class="btn btn-success" onclick="add()">Add</button>
     </div>
     <ul id="myUL">
-      <li class="checked" id="goat">Watch Wan Peaceee</li>
-      <li class="unchecked" id="Jim">Go to Jim's house</li>
-      <li class="checked" id="rent">Pay rent</li>
-      <li class="unchecked" id="EFT">Extract from Turk's</li>
-      <li class="unchecked" id="Wal">Go to Wally Wally</li>
-      <li class="checked" id="RIP">Toke</li>
+      <li class="checked" id= 1> Watch Wan Peaceee</li>
+      <li class="unchecked" id=2> Go to Jim's house</li>
+      <li class="checked" id=3> Pay rent</li>
+      <li class="unchecked" id=4> Extract from Turk's</li>
+      <li class="unchecked" id=5> Go to Wally Wally</li>
+      <li class="checked" id=6> Code</li>
     </ul>
   </body>
   <form id="editForm" style="display: none;">
     <input type="text" id="editInput" />
-    <button type="submit">edit</button>
-    <button type="submit">edit</button>
+    <button type="submit">add</button>
   </form>
 
   <script>
-        const deleteButton =
-        for (let i = 0; i < myUL.length; i++){
+    let ull = document.getElementById("myUL");
+    let items = ull.getElementsByTagName("li");
+    refresh();
 
-        }
-    let list = document.getElementById("myUL")
-    console.log(list);
+   // mouseOver();
+    console.log(items)
 
-    function add(){
-       let itemName = document.getElementById('myInput').value;
-        validation(add);
-        function validation(event){
-        if (itemName.length < 3){
-            alert('Task name must be longer than 3 characters, baka');
-        } else {
-            var node = document.createElement("LI");
-            var textnode = document.createTextNode(itemName);
-            node.appendChild(textnode);
-            node.setAttribute('id', Math.random()*10);
-            document.getElementById("myUL").appendChild(node);
-            }
-        }
+    function cleanUp() {}
+
+    function refresh() {
+      items = ull.getElementsByTagName("li"); //This block of code is
+      for (let i = 0; i < items.length; i++) {
+        items[i].onclick = function () {
+          let li = "<li>" + items[i] + "</li>";
+          if ((this.id = items[i].id)) {
+            console.log(this.id)
+            myUL.removeChild(items[i]);
+          }
+        };
+      }
     }
-    let check = document.querySelector('myUL');
+
+
+    function add() {
+      let itemName = document.getElementById("myInput").value;
+      validation(add);
+      function validation(event) {
+        if (itemName.length < 3) {
+          alert("Task name must be longer than 3 characters, baka");
+        } else {
+          var node = document.createElement("li");
+          var textnode = document.createTextNode(itemName);
+          node.appendChild(textnode);
+          node.setAttribute("id", Math.random() * 10);
+          node.classList.add("unchecked");
+          document.getElementById("myUL").appendChild(node);
+          let li = "<li>" + textnode + "</li>";
+          refresh();
+         // console.log(myUL);
+        }
+      }
+    }
   </script>
 </html>

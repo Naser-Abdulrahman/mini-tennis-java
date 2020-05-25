@@ -7,14 +7,14 @@ import javax.swing.JPanel;
 public class KeyboardExample2 extends JPanel {
 
     public KeyboardExample2() {
-        KeyListener listener = new MyKeyListener() {
+        KeyListener listener = new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-                System.out.println("keyPRessed=" + KeyEvent.getKeyText(e.getKeyCode()));
+                System.out.println("keyPressed=" + KeyEvent.getKeyText(e.getKeyCode()));
             }
 
             @Override
